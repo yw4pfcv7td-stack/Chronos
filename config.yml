@@ -1,0 +1,93 @@
+# ============================================================
+#  Chronos - configuration
+#  Language files live in plugins/Chronos/lang/ (en, it included).
+#  To add a language: copy en.yml to <code>.yml, translate it, set "language: <code>".
+# ============================================================
+language: en                 # en | it | any file you add in the lang/ folder
+
+update-checker:
+  enabled: true
+  modrinth-slug: ""          # your project slug on Modrinth; empty = disabled
+
+storage:
+  type: sqlite               # sqlite | mysql | postgresql
+  sqlite-file: chronos.db
+  host: localhost
+  port: 3306                 # PostgreSQL: 5432
+  database: chronos
+  username: root
+  password: ""
+  pool-size: 6
+
+logging:
+  blocks: true
+  containers: true           # items taken from / put into containers
+  kills: true
+  kills-all-mobs: false      # false = players, animals, villagers and named mobs only
+  chat: true
+  commands: true
+  sessions: true
+  environment: true          # explosions, fire, fluids, Wither, crystals...
+  pistons: false             # log blocks moved by pistons (attributed to the piston's placer)
+  item-data: true            # store container contents and sign text (needed for exact restores)
+  log-creative: true         # false = ignore blocks placed/broken in creative mode
+  ignored-worlds: []
+  ignored-players: []        # names that are never logged (e.g. bots)
+  ignored-blocks: []         # block names never logged, e.g. [grass, short_grass, fire]
+  ignored-commands: [login, l, register, reg, changepassword, cp, unregister]
+  entity-block-change: [WITHER, RAVAGER, ENDERMAN]
+
+inspector:
+  lookup-gui: true           # false = /chronos lookup prints in chat instead of opening the menu
+  results-per-page: 10       # chat results per page (3-30)
+
+performance:
+  batch-size: 2000
+  flush-interval-ms: 500
+  blocks-per-tick: 2000      # rollback budget per tick
+  max-rollback-rows: 500000
+  undo-depth: 10
+
+rollback:
+  preview: true              # ghost preview before applying (visible only to the sender)
+  preview-seconds: 120
+  max-preview-blocks: 30000  # above this: no ghost blocks, summary + confirmation only
+  max-radius: 250
+  notify-staff: true         # tell staff (chronos.alerts) when someone runs a rollback/restore
+
+wand-material: BLAZE_ROD
+
+retention:
+  enabled: true
+  actions-days: 60
+  messages-days: 14
+  archive: true              # keep deleted rows in plugins/Chronos/archive/*.csv.gz
+
+snapshots:
+  enabled: true
+  on-death: true
+  on-logout: true
+  on-login: false
+  interval-minutes: 15       # 0 = disabled
+  keep-per-player: 40
+
+detection:
+  enabled: true
+  ignored-worlds: []
+  alert-cooldown-seconds: 300
+  xray:
+    window-minutes: 10
+    min-ores: 8
+    ore-ratio: 0.30          # ores / (ores + stone) inside the window
+    hidden-ores: 6           # ores that were almost fully buried (<= 1 exposed face)
+  mass-break:
+    blocks: 250
+    seconds: 10
+  container:
+    items-removed: 400       # items taken in a single session
+    emptied-min-stacks: 12   # container emptied that held at least N stacks
+
+discord:
+  enabled: false
+  webhook-url: ""
+  username: Chronos
