@@ -1,0 +1,208 @@
+# Chronos - Italiano. Segnaposto: {nome}. Testo in formato MiniMessage.
+# Non modificare i comandi dentro <click:...>. I segnaposto che finiscono con _raw non vengono escapati.
+prefix: "<dark_gray>[<gold>Chronos<dark_gray>]</dark_gray> <gray>"
+
+error:
+  db: "<red>Errore nel database, controlla la console."
+  perm: "<red>Non hai il permesso ({perm})."
+  player_only: "<red>Utilizzabile solo in gioco."
+  unknown: "<red>Sottocomando sconosciuto. <gray>Usa /chronos help"
+
+time:
+  ago: "{time} fa"
+
+verb:
+  break: "ha rotto"
+  place: "ha piazzato"
+  add: "ha inserito"
+  remove: "ha prelevato"
+  kill: "ha ucciso"
+
+row:
+  rolledback: "<dark_red>[ripristinato]"
+
+param:
+  invalid: "Parametro non valido: {token}"
+  unknown: "Parametro sconosciuto: {key}"
+  time: "Tempo non valido: {value} (esempi: 2h30m, 1d, 45s)"
+  action: "Azione non valida: {value}"
+  number: "Numero non valido in {token}"
+  at: "at: richiede x,y,z"
+  world: "Specifica il mondo con w:"
+  sel_player: "r:sel e' utilizzabile solo in gioco"
+  sel_none: "Nessuna selezione: usa /chronos wand e imposta due punti"
+  radius_player: "Il raggio richiede un giocatore (da console usa at: o w:)"
+  radius_invalid: "Raggio non valido: {value}"
+  radius_max: "Raggio massimo: {max}"
+
+list:
+  title: "Lookup"
+  header: "<dark_gray>----- <gold>{title} <gray>({total} risultati, pagina {page}/{pages}) <dark_gray>-----"
+  empty: "<gray>Nessun risultato."
+  prev: "[« precedente]"
+  next: "[successiva »]"
+
+history:
+  title: "Cronologia {x} {y} {z}"
+
+inspect:
+  on: "Inspector <green>attivo</green>: sinistro = blocco cliccato, destro = blocco adiacente / contenitore."
+  off: "Inspector <red>disattivato</red>."
+
+wand:
+  name: "<gold>Bacchetta Chronos"
+  lore1: "<gray>Click sinistro: posizione 1"
+  lore2: "<gray>Click destro: posizione 2"
+  lore3: "<dark_gray>Usa r:sel nei comandi"
+  given: "Bacchetta consegnata. Click sinistro/destro su due blocchi, poi usa <white>r:sel</white>."
+
+sel:
+  set: "Posizione {n} impostata: <white>{pos}"
+
+word:
+  rollback: "rollback"
+  restore: "restore"
+
+rb:
+  scope: "<red>Serve un ambito preciso: almeno <white>t:</white> (tempo) o <white>i:</white> (incidente), piu' un filtro come <white>u:</white>, <white>r:</white> o <white>i:</white>."
+  calculating: "Calcolo delle modifiche..."
+  none_rollback: "Nessuna modifica da annullare con questi filtri."
+  none_restore: "Nessuna modifica da ripristinare con questi filtri."
+  applying: "Applico <white>{count}</white> operazioni ({perTick}/tick)..."
+  notify: "<yellow>{player}</yellow> sta eseguendo un <white>{kind}</white> ({count} azioni)."
+  label_rollback: "rollback di {rows} azioni"
+  label_restore: "restore di {rows} azioni"
+  done: "<green>Fatto</green> in {ms} ms: <white>{blocks}</white> blocchi, <white>{items}</white> oggetti in <white>{containers}</white> contenitori"
+  done_failed: ", <red>{n} falliti</red>"
+  done_hint: ". Usa <white>/chronos undo</white> per annullare."
+
+preview:
+  summary_rollback: "<gold>Anteprima</gold>: verranno annullati <white>{blocks}</white> blocchi e <white>{items}</white> oggetti in <white>{containers}</white> contenitori (<white>{rows}</white> azioni)"
+  summary_restore: "<gold>Anteprima</gold>: verranno ripristinati <white>{blocks}</white> blocchi e <white>{items}</white> oggetti in <white>{containers}</white> contenitori (<white>{rows}</white> azioni)"
+  truncated: " <red>[limite righe raggiunto]"
+  novisual: " <yellow>[troppi blocchi: anteprima visiva disattivata]"
+  buttons: "  <green><click:run_command:'/chronos confirm'><hover:show_text:'Applica'>[ CONFERMA ]</hover></click></green>  <red><click:run_command:'/chronos cancel'><hover:show_text:'Annulla'>[ ANNULLA ]</hover></click></red> <dark_gray>(scade tra {seconds}s)"
+  expired: "Anteprima scaduta."
+  none: "Nessuna anteprima in sospeso."
+  none_expired: "Nessuna anteprima in sospeso (forse e' scaduta)."
+  cancelled: "Anteprima annullata."
+
+undo:
+  none: "Niente da annullare."
+  start: "Annullo: <white>{label}"
+  done: "<green>Annullato.</green> Livelli di undo rimasti: {undo} (redo: {redo})"
+redo:
+  none: "Niente da ripetere."
+  start: "Ripeto: <white>{label}"
+  done: "<green>Ripetuto.</green>"
+
+alerts:
+  on: "Avvisi attivita' sospette: <green>attivi"
+  off: "Avvisi attivita' sospette: <red>silenziati"
+
+alert:
+  type_xray: "X-RAY SOSPETTO"
+  type_mass: "ROTTURA DI MASSA"
+  type_emptied: "CONTENITORE SVUOTATO"
+  type_bulk: "PRELIEVO MASSICCIO"
+  detail_xray: "{ores} minerali su {total} blocchi ({percent}%), {hidden} sepolti, finestra {minutes} min"
+  detail_mass: "{count} blocchi in {seconds}s"
+  detail_container: "{removed} oggetti prelevati ({before} stack prima, {after} dopo)"
+  format: "<red>⚠ <gold>{type}<gray>: <white>{player} <gray>- {detail} <dark_gray>@ {where} <click:run_command:'/chronos lookup u:{player} t:1h'><aqua>[log]</aqua></click>"
+  plain: "[Chronos] {type}: {player} - {detail} @ {where}"
+
+status: "DB: <white>{db}</white> | coda: <white>{queue}</white> | scritti: <white>{written}</white> | scartati: <white>{dropped}</white> | undo: <white>{undo}</white>"
+
+purge:
+  usage: "Uso: /chronos purge <tempo> (es. 60d). Elimina le azioni piu' vecchie."
+  started: "Retention avviata in background..."
+  done: "<green>Retention completata."
+
+reload:
+  done: "Configurazione e lingua ricaricate (le impostazioni del database richiedono un riavvio)."
+
+incidents:
+  header: "<dark_gray>----- <gold>Incidenti recenti <dark_gray>-----"
+  none: "<gray>Nessun incidente."
+  row: "<gold>#{id} <yellow>{kind} <gray>di <white>{user} <gray>- <white>{actions}</white> azioni - {ago} fa"
+  view: "[vedi]"
+  rollback: "[rollback]"
+  rollback_hover: "Mostra l'anteprima del rollback"
+
+snap:
+  usage: "Uso: <white>/chronos snapshot list|take|restore <giocatore> [id|last|death] [inv|ender|xp|all]"
+  need_player: "<red>Specifica il giocatore."
+  list_header: "<dark_gray>----- <gold>Snapshot di {player} <dark_gray>-----"
+  list_none: "<gray>Nessuno snapshot."
+  list_row: "<gold>#{id} <gray>{reason} - {ago} fa - livello {level} - {world} {x} {y} {z}"
+  restore_button: "[ripristina]"
+  reason_0: "morte"
+  reason_1: "logout"
+  reason_2: "periodico"
+  reason_3: "login"
+  reason_4: "pre-restore"
+  reason_5: "manuale"
+  offline: "<red>Giocatore non online."
+  offline_restore: "<red>Il giocatore deve essere online per il ripristino."
+  queued: "Snapshot manuale accodato."
+  notfound: "<red>Snapshot non trovato."
+  unknown_op: "<red>Operazione sconosciuta."
+  part_inv: "inventario"
+  part_ender: "ender chest"
+  part_xp: "XP"
+  restored: "Ripristinato snapshot <white>#{id}</white> di <white>{player}</white>: {parts}. Stato precedente salvato come snapshot <white>pre-restore</white>."
+  restored_notice: "Un membro dello staff ha ripristinato il tuo inventario."
+
+gui:
+  title: "<gold>Chronos <dark_gray>- <gray>Lookup"
+  all: "tutte"
+  custom: "personalizzato"
+  prev: "<yellow>Pagina precedente"
+  next: "<yellow>Pagina successiva"
+  page: "<white>Pagina {n}/{total}"
+  close: "<red>Chiudi"
+  click_change: "<gray>Click per cambiare"
+  filter_action: "<yellow>Filtro azione: <white>{v}"
+  filter_time: "<yellow>Filtro tempo: <white>{v}"
+  time_0: "1 ora"
+  time_1: "6 ore"
+  time_2: "1 giorno"
+  time_3: "7 giorni"
+  time_4: "30 giorni"
+  time_5: "illimitato"
+  reset: "<yellow>Azzera filtri"
+  reset_users: "<gray>Utenti: <white>{v}"
+  reset_blocks: "<gray>Blocchi: <white>{v}"
+  reset_incident: "<gray>Incidente: <white>{v}"
+  rollback: "<red>Rollback con questi filtri"
+  rollback_hint: "<gray>Apre l'anteprima"
+  restore: "<green>Restore con questi filtri"
+  restore_hint: "<gray>Riapplica cio' che e' stato annullato"
+  lore_player: "<gray>Giocatore: <white>{v}"
+  lore_when: "<gray>Quando: <white>{ago} fa <dark_gray>({date})"
+  lore_pos: "<gray>Posizione: <white>{world} {x} {y} {z}"
+  lore_amount: "<gray>Quantita': <white>{v}"
+  lore_incident: "<gray>Incidente: <gold>#{v}"
+  lore_rolledback: "<dark_red>Gia' annullato (rollback)"
+  click_tp: "<dark_gray>Sinistro: teletrasporto"
+  click_user: "<dark_gray>Shift+sinistro: filtra giocatore"
+  click_block: "<dark_gray>Destro: filtra blocco"
+  click_incident: "<dark_gray>Shift+destro: filtra incidente"
+
+update:
+  available: "E' disponibile una nuova versione di Chronos: <white>{latest}</white> (hai la {current}). <aqua>{url}"
+
+help: |-
+  <dark_gray>----- <gold>Chronos <dark_gray>-----
+  <yellow>/chronos inspect <gray>- inspector a click
+  <yellow>/chronos lookup <params> <gray>- menu GUI con filtri
+  <yellow>/chronos list <params> <gray>- risultati in chat
+  <yellow>/chronos rollback|restore <params> <gray>- con anteprima; <white>now</white> = subito
+  <yellow>/chronos confirm | cancel | undo | redo
+  <yellow>/chronos wand <gray>- selezione area (r:sel)
+  <yellow>/chronos incidents [u:] [t:] <gray>- incidenti raggruppati
+  <yellow>/chronos snapshot list|take|restore <giocatore> ...
+  <yellow>/chronos alerts | status | purge <tempo> | reload
+  <gray>Parametri: <white>u:</white> giocatori, <white>xu:</white> escludi giocatori, <white>b:</white> blocchi, <white>xb:</white> escludi blocchi,
+  <white>t:</white> tempo (2h30m), <white>r:</white> raggio o <white>sel</white>, <white>a:</white> break/place/add/remove/kill/block/container,
+  <white>i:</white> incidente, <white>w:</white> mondo, <white>at:</white> x,y,z

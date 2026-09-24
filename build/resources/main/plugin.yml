@@ -1,0 +1,34 @@
+name: Chronos
+version: '1.0.0'
+main: dev.chronos.Chronos
+api-version: '1.21'
+folia-supported: true
+authors: [Chronos]
+description: Logging, rollback con anteprima, incidenti, snapshot giocatori e rilevamento sospetti.
+libraries:
+  - com.zaxxer:HikariCP:5.1.0
+  - org.postgresql:postgresql:42.7.4
+commands:
+  chronos:
+    description: Comando principale di Chronos
+    aliases: [chr]
+    usage: /chronos help
+permissions:
+  chronos.inspect:
+    default: op
+  chronos.lookup:
+    default: op
+  chronos.rollback:
+    description: rollback, restore, undo, redo, wand
+    default: op
+  chronos.teleport:
+    default: op
+  chronos.snapshot:
+    default: op
+  chronos.alerts:
+    default: op
+  chronos.admin:
+    default: op
+  chronos.bypass.detect:
+    description: Esclude il giocatore dal rilevamento sospetti
+    default: false

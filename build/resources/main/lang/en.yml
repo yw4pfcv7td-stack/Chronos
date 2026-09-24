@@ -1,0 +1,208 @@
+# Chronos - English (default). Placeholders: {name}. Text uses MiniMessage formatting.
+# Keep the <click:...> commands untouched when translating. Placeholders ending in _raw are not escaped.
+prefix: "<dark_gray>[<gold>Chronos<dark_gray>]</dark_gray> <gray>"
+
+error:
+  db: "<red>Database error, check the console."
+  perm: "<red>You don't have permission ({perm})."
+  player_only: "<red>This can only be used in game."
+  unknown: "<red>Unknown subcommand. <gray>Use /chronos help"
+
+time:
+  ago: "{time} ago"
+
+verb:
+  break: "broke"
+  place: "placed"
+  add: "put in"
+  remove: "took out"
+  kill: "killed"
+
+row:
+  rolledback: "<dark_red>[rolled back]"
+
+param:
+  invalid: "Invalid parameter: {token}"
+  unknown: "Unknown parameter: {key}"
+  time: "Invalid time: {value} (examples: 2h30m, 1d, 45s)"
+  action: "Invalid action: {value}"
+  number: "Invalid number in {token}"
+  at: "at: needs x,y,z"
+  world: "Specify the world with w:"
+  sel_player: "r:sel can only be used in game"
+  sel_none: "No selection: use /chronos wand and set two points"
+  radius_player: "A radius needs a player (use at: or w: from the console)"
+  radius_invalid: "Invalid radius: {value}"
+  radius_max: "Maximum radius: {max}"
+
+list:
+  title: "Lookup"
+  header: "<dark_gray>----- <gold>{title} <gray>({total} results, page {page}/{pages}) <dark_gray>-----"
+  empty: "<gray>No results."
+  prev: "[« previous]"
+  next: "[next »]"
+
+history:
+  title: "History {x} {y} {z}"
+
+inspect:
+  on: "Inspector <green>enabled</green>: left click = clicked block, right click = adjacent block / container."
+  off: "Inspector <red>disabled</red>."
+
+wand:
+  name: "<gold>Chronos Wand"
+  lore1: "<gray>Left click: position 1"
+  lore2: "<gray>Right click: position 2"
+  lore3: "<dark_gray>Use r:sel in commands"
+  given: "Wand given. Left/right click two blocks, then use <white>r:sel</white>."
+
+sel:
+  set: "Position {n} set: <white>{pos}"
+
+word:
+  rollback: "rollback"
+  restore: "restore"
+
+rb:
+  scope: "<red>A precise scope is required: at least <white>t:</white> (time) or <white>i:</white> (incident), plus a filter such as <white>u:</white>, <white>r:</white> or <white>i:</white>."
+  calculating: "Calculating changes..."
+  none_rollback: "Nothing to roll back with these filters."
+  none_restore: "Nothing to restore with these filters."
+  applying: "Applying <white>{count}</white> operations ({perTick}/tick)..."
+  notify: "<yellow>{player}</yellow> is running a <white>{kind}</white> ({count} actions)."
+  label_rollback: "rollback of {rows} actions"
+  label_restore: "restore of {rows} actions"
+  done: "<green>Done</green> in {ms} ms: <white>{blocks}</white> blocks, <white>{items}</white> items in <white>{containers}</white> containers"
+  done_failed: ", <red>{n} failed</red>"
+  done_hint: ". Use <white>/chronos undo</white> to revert."
+
+preview:
+  summary_rollback: "<gold>Preview</gold>: <white>{blocks}</white> blocks and <white>{items}</white> items in <white>{containers}</white> containers will be rolled back (<white>{rows}</white> actions)"
+  summary_restore: "<gold>Preview</gold>: <white>{blocks}</white> blocks and <white>{items}</white> items in <white>{containers}</white> containers will be restored (<white>{rows}</white> actions)"
+  truncated: " <red>[row limit reached]"
+  novisual: " <yellow>[too many blocks: visual preview disabled]"
+  buttons: "  <green><click:run_command:'/chronos confirm'><hover:show_text:'Apply'>[ CONFIRM ]</hover></click></green>  <red><click:run_command:'/chronos cancel'><hover:show_text:'Cancel'>[ CANCEL ]</hover></click></red> <dark_gray>(expires in {seconds}s)"
+  expired: "Preview expired."
+  none: "No pending preview."
+  none_expired: "No pending preview (it may have expired)."
+  cancelled: "Preview cancelled."
+
+undo:
+  none: "Nothing to undo."
+  start: "Undoing: <white>{label}"
+  done: "<green>Undone.</green> Undo levels left: {undo} (redo: {redo})"
+redo:
+  none: "Nothing to redo."
+  start: "Redoing: <white>{label}"
+  done: "<green>Redone.</green>"
+
+alerts:
+  on: "Suspicious-activity alerts: <green>enabled"
+  off: "Suspicious-activity alerts: <red>muted"
+
+alert:
+  type_xray: "SUSPECTED X-RAY"
+  type_mass: "MASS BREAKING"
+  type_emptied: "CONTAINER EMPTIED"
+  type_bulk: "BULK CONTAINER TAKE"
+  detail_xray: "{ores} ores out of {total} blocks ({percent}%), {hidden} buried, {minutes} min window"
+  detail_mass: "{count} blocks in {seconds}s"
+  detail_container: "{removed} items taken ({before} stacks before, {after} after)"
+  format: "<red>⚠ <gold>{type}<gray>: <white>{player} <gray>- {detail} <dark_gray>@ {where} <click:run_command:'/chronos lookup u:{player} t:1h'><aqua>[log]</aqua></click>"
+  plain: "[Chronos] {type}: {player} - {detail} @ {where}"
+
+status: "DB: <white>{db}</white> | queue: <white>{queue}</white> | written: <white>{written}</white> | dropped: <white>{dropped}</white> | undo: <white>{undo}</white>"
+
+purge:
+  usage: "Usage: /chronos purge <time> (e.g. 60d). Deletes actions older than that."
+  started: "Retention started in the background..."
+  done: "<green>Retention completed."
+
+reload:
+  done: "Configuration and language reloaded (database settings need a restart)."
+
+incidents:
+  header: "<dark_gray>----- <gold>Recent incidents <dark_gray>-----"
+  none: "<gray>No incidents."
+  row: "<gold>#{id} <yellow>{kind} <gray>by <white>{user} <gray>- <white>{actions}</white> actions - {ago} ago"
+  view: "[view]"
+  rollback: "[rollback]"
+  rollback_hover: "Show a rollback preview"
+
+snap:
+  usage: "Usage: <white>/chronos snapshot list|take|restore <player> [id|last|death] [inv|ender|xp|all]"
+  need_player: "<red>Specify the player."
+  list_header: "<dark_gray>----- <gold>Snapshots of {player} <dark_gray>-----"
+  list_none: "<gray>No snapshots."
+  list_row: "<gold>#{id} <gray>{reason} - {ago} ago - level {level} - {world} {x} {y} {z}"
+  restore_button: "[restore]"
+  reason_0: "death"
+  reason_1: "logout"
+  reason_2: "periodic"
+  reason_3: "login"
+  reason_4: "pre-restore"
+  reason_5: "manual"
+  offline: "<red>Player is not online."
+  offline_restore: "<red>The player must be online to restore."
+  queued: "Manual snapshot queued."
+  notfound: "<red>Snapshot not found."
+  unknown_op: "<red>Unknown operation."
+  part_inv: "inventory"
+  part_ender: "ender chest"
+  part_xp: "XP"
+  restored: "Restored snapshot <white>#{id}</white> of <white>{player}</white>: {parts}. Previous state saved as a <white>pre-restore</white> snapshot."
+  restored_notice: "A staff member restored your inventory."
+
+gui:
+  title: "<gold>Chronos <dark_gray>- <gray>Lookup"
+  all: "all"
+  custom: "custom"
+  prev: "<yellow>Previous page"
+  next: "<yellow>Next page"
+  page: "<white>Page {n}/{total}"
+  close: "<red>Close"
+  click_change: "<gray>Click to change"
+  filter_action: "<yellow>Action filter: <white>{v}"
+  filter_time: "<yellow>Time filter: <white>{v}"
+  time_0: "1 hour"
+  time_1: "6 hours"
+  time_2: "1 day"
+  time_3: "7 days"
+  time_4: "30 days"
+  time_5: "unlimited"
+  reset: "<yellow>Clear filters"
+  reset_users: "<gray>Players: <white>{v}"
+  reset_blocks: "<gray>Blocks: <white>{v}"
+  reset_incident: "<gray>Incident: <white>{v}"
+  rollback: "<red>Roll back with these filters"
+  rollback_hint: "<gray>Opens the preview"
+  restore: "<green>Restore with these filters"
+  restore_hint: "<gray>Re-applies what was rolled back"
+  lore_player: "<gray>Player: <white>{v}"
+  lore_when: "<gray>When: <white>{ago} ago <dark_gray>({date})"
+  lore_pos: "<gray>Location: <white>{world} {x} {y} {z}"
+  lore_amount: "<gray>Amount: <white>{v}"
+  lore_incident: "<gray>Incident: <gold>#{v}"
+  lore_rolledback: "<dark_red>Already rolled back"
+  click_tp: "<dark_gray>Left click: teleport"
+  click_user: "<dark_gray>Shift+left: filter player"
+  click_block: "<dark_gray>Right click: filter block"
+  click_incident: "<dark_gray>Shift+right: filter incident"
+
+update:
+  available: "A new version of Chronos is available: <white>{latest}</white> (you have {current}). <aqua>{url}"
+
+help: |-
+  <dark_gray>----- <gold>Chronos <dark_gray>-----
+  <yellow>/chronos inspect <gray>- click inspector
+  <yellow>/chronos lookup <params> <gray>- GUI menu with filters
+  <yellow>/chronos list <params> <gray>- results in chat
+  <yellow>/chronos rollback|restore <params> <gray>- with preview; <white>now</white> = apply immediately
+  <yellow>/chronos confirm | cancel | undo | redo
+  <yellow>/chronos wand <gray>- area selection (r:sel)
+  <yellow>/chronos incidents [u:] [t:] <gray>- grouped incidents
+  <yellow>/chronos snapshot list|take|restore <player> ...
+  <yellow>/chronos alerts | status | purge <time> | reload
+  <gray>Parameters: <white>u:</white> players, <white>xu:</white> exclude players, <white>b:</white> blocks, <white>xb:</white> exclude blocks,
+  <white>t:</white> time (2h30m), <white>r:</white> radius or <white>sel</white>, <white>a:</white> break/place/add/remove/kill/block/container,
+  <white>i:</white> incident, <white>w:</white> world, <white>at:</white> x,y,z
