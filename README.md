@@ -1,2 +1,3 @@
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![License](https://img.shields.io/github/license/yw4pfcv7td-stack/Chronos?style=for-the-badge)
+![License](https://img.shields.io/badge/license-AGPLv3-blue)
+![Minecraft](https://img.shields.io/badge/minecraft-1.21.x-green)
+![Java](https://img.shields.io/badge/java-21-orange)
